@@ -9,9 +9,6 @@
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-</head>
-
-</head>
 <body>
     <!-- SIDEBAR -->
 
@@ -22,35 +19,42 @@
            <div class="logo-icon">$</div>
            <span>Finance <span class="logo-green">Tracker</span> </span>
        </div>
-       <nav class="sidebar-nav">
-           <p class="nav-title">Menu</p>
-           <div class="nav-item active">
-            <span class="nav-icon">$</span>
-            <span>Dashboard</span>
-           </div>
-           <div class="nav-item">
-            <span class="nav-icon">$</span>
-            <span>Total Transactions</span>
-           </div>
-           <div class="nav-item">
-            <span class="nav-icon">$</span>
-            <span>Add Transactions</span>
-           </div>
-           <div class="nav-item">
-            <span class="nav-icon">$</span>
-            <span>Categories</span>
-           </div>
-           <div class="nav-item">
-            <span class="nav-icon">$</span>
-            <span>Settings</span>
-           </div>
-       </nav>
+      <nav class="sidebar-nav">
+
+    <p class="nav-title">Menu</p>
+
+    <div class="nav-item active" data-section="dashboard">
+        <span class="nav-icon">$</span>
+        <span>Dashboard</span>
+    </div>
+
+   <div class="nav-item" data-section="all-transactions">
+    <span class="nav-icon">$</span>
+    <span>Total Transactions</span>
+</div>
+
+    <div class="nav-item" data-section="add-transactions">
+        <span class="nav-icon">$</span>
+        <span>Add Transactions</span>
+    </div>
+
+    <div class="nav-item" data-section="categories">
+        <span class="nav-icon">$</span>
+        <span>Categories</span>
+    </div>
+
+    <div class="nav-item" data-section="settings">
+        <span class="nav-icon">$</span>
+        <span>Settings</span>
+    </div>
+
+</nav>
        
     </aside>
 
 
     <!-- MAIN CONTENT -->
-
+    
     <main class="main-content">
        <header class="header">
           <button class="menu-btn">&#9776;</button> 
@@ -59,16 +63,609 @@
           <span class="profile-photo"><i class="fa-solid fa-circle-user"></i></span>
           </div>
        </header>
-    </main>
+    
 
 
 
     <!-- Dashboard -->
-     <section class="dashboard" id="dashboard">
-        
-     </section>
+<section class="dashboard" id="dashboard">
+        <div class="page-header">
+        <div class="dashboard-left">
+            <h2>Dashboard</h2>
+            <p>Overview of your finance</p>
+        </div>
+        <div class="dashboard-right">
+            <span>Sept 1 - Sept 30</span>
+            <span><i class="fa-solid fa-calendar-days"></i></span>
+        </div>
+        </div>
 
+        <div class="summary-cards">
+            
+            <div class="summary-balance-card">
+            <div class="card-info">
+                <div class="card-text">
+                <p>Total Balance</p>
+                <h2 id="totalbalance">RS.54,750</h2>
+                </div>
+                <div class="card-icon"><i class="fa-solid fa-wallet"></i></div>
+            </div>
+            </div>
+
+            <div class="summary-expense-card">
+            <div class="card-info">
+                <div class="card-text">
+                <p>Total Expenses</p>
+                <h2 id="totalbalance">RS.85,000</h2>
+                </div>
+                <div class="card-icon-red"><i class="fa-solid fa-circle-arrow-down"></i></div>
+            </div>
+            </div>
+
+            
+            <div class="summary-income-card">
+            <div class="card-info">
+                <div class="card-text">
+                <p>Total Income</p>
+                <h2 id="totalincome">RS.30,320</h2>
+                </div>
+                <div class="card-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+            </div>
+            </div>
+
+        </div>
+
+<div class="dashboard-grid">
+               <div class="dashboard-card expense-overview">
+
+    <div class="section-heading">
+        <div>
+            <h3>Expense overview</h3>
+            <p>Where your money is going</p>
+        </div>
+    </div>
+
+    <div id="expensechart" class="expensechart">
+
+        <!-- DONUT AREA -->
+        <div class="chart-center">
+
+            <div class="chart"></div>
+
+            <div class="chart-center-text">
+                <strong id="chart-total">RS. 30,320</strong>
+                <span>Total</span>
+            </div>
+
+        </div>
+
+
+        <!-- CATEGORY LIST -->
+        <div id="categorylist" class="categorylist">
+
+            <div class="list-item">
+                <span class="list-dot food-dot"></span>
+                <span>Food</span>
+                <strong>RS.0</strong>
+            </div>
+
+            <div class="list-item">
+                <span class="list-dot travel-dot"></span>
+                <span>Travel</span>
+                <strong>RS.0</strong>
+            </div>
+
+            <div class="list-item">
+                <span class="list-dot shopping-dot"></span>
+                <span>Shopping</span>
+                <strong>RS.0</strong>
+            </div>
+
+            <div class="list-item">
+                <span class="list-dot bills-dot"></span>
+                <span>Bills</span>
+                <strong>RS.0</strong>
+            </div>
+
+            <div class="list-item">
+                <span class="list-dot entertainment-dot"></span>
+                <span>Entertainment</span>
+                <strong>RS.0</strong>
+            </div>
+        </div>   <!--category list-->
+    </div>    <!--expensechart-->
+   </div>      <!--dashboard-card expense-overview-->
+
+               <div class="dashboard-card recent-transactions">
+
+    <div class="section-heading">
+        <div>
+            <h3>Recent Transactions</h3>
+            <p>Your latest activity</p>
+        </div>
+
+        <button id="viewallbtn" class="viewallbtn">
+            View all
+        </button>
+    </div>
+
+
+    <div class="recent-transaction" id="recent-transaction">
+
+        <!-- Transaction 1 -->
+        <div class="transaction-item">
+
+            <div class="transaction-icon food-icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+
+            <div class="transaction-details">
+                <strong>Grocery Shopping</strong>
+                <span>Food</span>
+            </div>
+
+            <div class="transaction-date">
+                May 31, 2025
+            </div>
+
+            <strong class="transaction-amount expense">
+                - RS.1,250
+            </strong>
+
+        </div>
+
+
+        <!-- Transaction 2 -->
+        <div class="transaction-item">
+
+            <div class="transaction-icon income-icon">
+                <i class="fa-solid fa-wallet"></i>
+            </div>
+
+            <div class="transaction-details">
+                <strong>Salary - May</strong>
+                <span>Salary</span>
+            </div>
+
+            <div class="transaction-date">
+                May 31, 2025
+            </div>
+
+            <strong class="transaction-amount income">
+                + RS.50,000
+            </strong>
+
+        </div>
+
+
+        <!-- Transaction 3 -->
+        <div class="transaction-item">
+
+            <div class="transaction-icon bills-icon">
+                <i class="fa-solid fa-file-invoice"></i>
+            </div>
+
+            <div class="transaction-details">
+                <strong>Electricity Bill</strong>
+                <span>Bills</span>
+            </div>
+
+            <div class="transaction-date">
+                May 30, 2025
+            </div>
+
+            <strong class="transaction-amount expense">
+                - RS.2,300
+            </strong>
+
+        </div>
+
+
+        <!-- Transaction 4 -->
+        <div class="transaction-item">
+
+            <div class="transaction-icon travel-icon">
+                <i class="fa-solid fa-car"></i>
+            </div>
+
+            <div class="transaction-details">
+                <strong>Uber Ride</strong>
+                <span>Travel</span>
+            </div>
+
+            <div class="transaction-date">
+                May 29, 2025
+            </div>
+
+            <strong class="transaction-amount expense">
+                - RS.350
+            </strong>
+
+        </div>
+
+
+        <!-- Transaction 5 -->
+        <div class="transaction-item">
+
+            <div class="transaction-icon freelance-icon">
+                <i class="fa-solid fa-briefcase"></i>
+            </div>
+
+            <div class="transaction-details">
+                <strong>Freelance Project</strong>
+                <span>Freelance</span>
+            </div>
+
+            <div class="transaction-date">
+                May 28, 2025
+            </div>
+
+            <strong class="transaction-amount income">
+                + RS.10,000
+            </strong>
+
+        </div>   <!--transaction-item-->
+    </div>   <!--recent transactions-->
+   </div>   <!--dashboard-card recent-transactions-->
+    
+
+
+
+
+
+
+
+
+</div>  <!--dashboard-grid-->
+</section>
+<section class="all-transactions" id="all-transactions"></section>
+    <div class="all-transactions-content">
+        <div class="all-transactions-header">
+            <h3>All Transactions</h3>
+            <div class="transaction-inputs">
+                  <div class="search-input">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input type="text" placeholder="Transaction name">
+                  </div>
+             
+            <select>
+                <option value="">Select Type</option>
+                <option>All</option>
+                <option>Expenses</option>
+                <option>Income</option>
+            </select>
+
+             <select>
+                <option value="">Select Category</option>
+                <option>Food</option>
+                <option>Travel</option>
+                <option>Shopping</option>
+                <option>Bills</option>
+                <option>Entertainment</option>
+            </select>
+
+                <input type="date" placeholder="Sort by Date">
+
+            </div>  <!--tansaction inputs-->
+        </div> <!--all transactions header-->
+    <div class="all-transactions-table">
+        
+
+        <table>
+              <thead>
+                <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Actions</th>
+                </tr>
+              </thead>
+        <tbody>
+
+            <tr>
+                <td>Grocery Shopping</td>
+
+                <td>
+                    <span class="category food">Food</span>
+                </td>
+
+                <td>
+                    <span class="type expense">Expense</span>
+                </td>
+
+                <td>May 31, 2025</td>
+
+                <td class="amount expense-amount">- ₹1,250</td>
+
+                <td>
+                    <div class="actions">
+                        <button class="edit-btn">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+
+                        <button class="delete-btn">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>Salary - May</td>
+
+                <td>
+                    <span class="category salary">Salary</span>
+                </td>
+
+                <td>
+                    <span class="type income">Income</span>
+                </td>
+
+                <td>May 31, 2025</td>
+
+                <td class="amount income-amount">+ ₹50,000</td>
+
+                <td>
+                    <div class="actions">
+                        <button class="edit-btn">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+
+                        <button class="delete-btn">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>Electricity Bill</td>
+
+                <td>
+                    <span class="category bills">Bills</span>
+                </td>
+
+                <td>
+                    <span class="type expense">Expense</span>
+                </td>
+
+                <td>May 30, 2025</td>
+
+                <td class="amount expense-amount">- ₹2,300</td>
+
+                <td>
+                    <div class="actions">
+                        <button class="edit-btn">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+
+                        <button class="delete-btn">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>Uber Ride</td>
+                <td>
+                    <span class="category travel">Travel</span>
+                </td>
+                <td>
+                    <span class="type expense">Expense</span>
+                </td>
+                <td>May 29, 2025</td>
+                <td class="amount expense-amount">- ₹350</td>
+                <td>
+                    <div class="actions">
+                        <button class="edit-btn">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+                        <button class="delete-btn">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Freelance Project</td>
+                <td>
+                    <span class="category freelance">Freelance</span>
+                </td>
+                <td>
+                    <span class="type income">Income</span>
+                </td>
+                <td>May 28, 2025</td>
+                <td class="amount income-amount">+ ₹10,000</td>
+                   <td>
+                    <div class="actions">
+                        <button class="edit-btn">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+
+                        <button class="delete-btn">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                     </td>
+                  </tr>
+
+              </tbody>
+              </table>
+
+        </div> <!--all-transactions-table-->
+
+
+
+    </div> <!--all transactions content-->
+    </section>
+     
+    <!-- =========================
+     ADD TRANSACTION
+========================= -->
+
+<section class="add-transactions" id="add-transactions">
+
+    <div class="add-transactions-content">
+
+        <div class="add-transaction-header">
+            <div>
+                <h3>Add Transaction</h3>
+                <p>Add a new income or expense to your tracker</p>
+            </div>
+        </div>
+
+
+        <form class="transaction-form">
+
+            <!-- Transaction Name -->
+            <div class="form-group">
+                <label for="transaction-name">
+                    Transaction Name
+                </label>
+
+                <input
+                    type="text"
+                    id="transaction-name"
+                    placeholder="e.g. Grocery Shopping"
+                    required
+                >
+            </div>
+
+
+            <!-- Amount -->
+            <div class="form-group">
+                <label for="transaction-amount">
+                    Amount
+                </label>
+
+                <input
+                    type="number"
+                    id="transaction-amount"
+                    placeholder="Enter amount"
+                    min="0"
+                    required
+                >
+            </div>
+
+
+            <!-- Type -->
+            <div class="form-group">
+                <label for="transaction-type">
+                    Type
+                </label>
+
+                <select id="transaction-type" required>
+                    <option value="">Select Type</option>
+                    <option value="expense">Expense</option>
+                    <option value="income">Income</option>
+                </select>
+            </div>
+
+
+            <!-- Category -->
+            <div class="form-group">
+                <label for="transaction-category">
+                    Category
+                </label>
+
+                <select id="transaction-category" required>
+                    <option value="">Select Category</option>
+                    <option value="food">Food</option>
+                    <option value="travel">Travel</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="bills">Bills</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="salary">Salary</option>
+                    <option value="freelance">Freelance</option>
+                </select>
+            </div>
+
+
+            <!-- Date -->
+            <div class="form-group">
+                <label for="transaction-date">
+                    Date
+                </label>
+
+                <input
+                    type="date"
+                    id="transaction-date"
+                    required
+                >
+            </div>
+
+
+            <!-- Notes -->
+            <div class="form-group notes-group">
+                <label for="transaction-notes">
+                    Notes <span>(Optional)</span>
+                </label>
+
+                <textarea
+                    id="transaction-notes"
+                    placeholder="Add a note about this transaction..."
+                    rows="3"
+                ></textarea>
+            </div>
+
+
+            <!-- Buttons -->
+            <div class="form-actions">
+
+                <button
+                    type="reset"
+                    class="cancel-btn"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="add-transaction-btn"
+                >
+                    <i class="fa-solid fa-plus"></i>
+                    Add Transaction
+                </button>
+
+            </div>
+
+        </form>
 
     </div>
+
+</section>  <!--Add transactions-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     </main>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
